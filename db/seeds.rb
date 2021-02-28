@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require_relative './seeds/001_categories'
+Category.find_or_create_by(CategorySeed.seed(5)) unless Category.count == 5
