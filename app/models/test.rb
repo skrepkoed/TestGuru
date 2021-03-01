@@ -1,6 +1,5 @@
 class Test < ApplicationRecord
   def self.tests_by_category(title)
-    category = Category.where(title: title)
-    category.map { |category| Test.where(category_id: category.id).order('id DESC') }.flatten.to_a
+    joins('JOIN categories ON tests.category_id=categories.id').where('categories.title=?', title)
   end
 end
