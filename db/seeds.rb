@@ -12,7 +12,7 @@ require_relative './seeds/004_answers'
 require_relative './seeds/005_users'
 require_relative './seeds/006_test_user'
 
-categories=Category.create(CategorySeed.seed(5))
+categories = Category.create(CategorySeed.seed(5))
 categories.each { |category| Test.create(TestSeed.seed(5, category.id)) }
 Test.select(:id).each { |test| Question.create(QuestionSeed.seed(10, test.id)) }
 Question.select(:id).each { |question| Answer.create(AnswerSeed.seed(4, question.id)) }
