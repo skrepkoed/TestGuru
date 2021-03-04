@@ -9,5 +9,14 @@ class Test < ApplicationRecord
   scope :middle, ->{where(level:2..4)}
   scope :hard, ->{where(level:5..Float::INFINITY)}
   scope :tests_by_category, ->(title){joins(:category).where('categories.title=?',title)}
-    
+  validates :title, presence: true
+  validates :level, numericality: {only_intger:true}
+  validate :validate_title_level_uniqness
+
+  private
+
+  def validate_title_level_uniqness
+  	binding.pry
+  	errors.add(:title)  unless self.class.where('title=? AND level=?',title,level).empty?
+  end
 end
