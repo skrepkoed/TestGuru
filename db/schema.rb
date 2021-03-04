@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_162407) do
   create_table "authorships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
-    t.index ["test_id"], name: "index_authorships_on_test_id"
+    t.index ["test_id"], name: "index_authorships_on_test_id", unique: true
     t.index ["user_id"], name: "index_authorships_on_user_id"
   end
 
