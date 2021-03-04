@@ -8,7 +8,6 @@ class Test < ApplicationRecord
   scope :easy, ->{where(level:0..1)}
   scope :middle, ->{where(level:2..4)}
   scope :hard, ->{where(level:5..Float::INFINITY)}
-  def self.tests_by_category(title)
-    joins(:category).where('categories.title=?',title)
-  end
+  scope :tests_by_category, ->(title){joins(:category).where('categories.title=?',title)}
+    
 end
