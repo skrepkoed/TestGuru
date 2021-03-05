@@ -11,12 +11,5 @@ class Test < ApplicationRecord
   scope :tests_by_category, ->(title){joins(:category).where('categories.title=?',title)}
   validates :title, presence: true
   validates :level, numericality: {only_intger:true}
-  validate :validate_title_level_uniqness
-
-  private
-
-  def validate_title_level_uniqness
-  	binding.pry
-  	errors.add(:title)  unless self.class.where('title=? AND level=?',title,level).empty?
-  end
+  validates :title, uniqueness:{scope: :level, message:'Title and level combinztion must be unique'},on:[:create,:update]
 end
