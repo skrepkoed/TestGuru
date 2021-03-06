@@ -9,6 +9,10 @@ class QuestionsController < ApplicationController
   def create
   end
 
+  def show
+  	question=Question.where(id:params[:id])
+  end
+
   def destroy
   end
 end
