@@ -3,7 +3,7 @@ class UserSeed
     data = []
     number.times do
       data << { username: Faker::Internet.username(specifier: 5..8),
-                password: Faker::Internet.password }
+                password: Faker::Internet.password, email: Faker::Internet.email }
     end
     data
   end
