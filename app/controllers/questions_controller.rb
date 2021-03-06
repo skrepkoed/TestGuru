@@ -7,6 +7,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
+  	Question.create(question_params)
+  	redirect_to test_questions_path
   end
 
   def show
@@ -14,5 +16,12 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def question_params
+  	params[:question][:test_id]=params[:test_id]
+  	params.require(:question).permit(:body,:test_id)
   end
 end
