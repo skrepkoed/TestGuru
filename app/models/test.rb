@@ -3,7 +3,6 @@ class Test < ApplicationRecord
   has_many :questions
   has_many :tests_users
   has_many :passed_users, through: :tests_users, source: :user
-  # belongs_to :author, class_name:'User'
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   scope :easy, -> { where(level: 0..1) }
   scope :middle, -> { where(level: 2..4) }
