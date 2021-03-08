@@ -3,7 +3,6 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_record_not_found
   def index
-    render inline: '<%= @test.questions.map { |question| question.body  }%>'
   end
 
   def new; end

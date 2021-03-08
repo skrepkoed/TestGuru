@@ -10,12 +10,12 @@ class TestsController < ApplicationController
 
 	def create
 		test=Test.new(params_test)
-		byebug
 		test.save
 		redirect_to tests_path
 	end
 
 	def show
+		@test_questions=@test.questions
 	end
 
 	def edit
