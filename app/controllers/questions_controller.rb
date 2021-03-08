@@ -10,11 +10,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = @test.questions.new(question_params)
-    if question.save
+    @question = @test.questions.new(question_params)
+    if @question.save
       redirect_to test_questions_path(@test.id)
     else
-      render inline: "<h1>#{question.errors.full_messages.first}</h1>"
+      render :new
     end
   end
 
@@ -25,8 +25,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update(question_params)
-    redirect_to test_questions_path(@question.test)
+    if @question.update(question_params)
+       redirect_to test_questions_path(@question.test)
+    else
+      @test=@question.test
+      render :edit
+    end
   end
 
   def destroy

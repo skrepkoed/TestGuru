@@ -9,9 +9,12 @@ class TestsController < ApplicationController
 	end
 
 	def create
-		test=Test.new(params_test)
-		test.save
-		redirect_to tests_path
+		@test=Test.new(params_test)
+		if @test.save
+		  redirect_to tests_path
+		else
+			render :new 
+		end
 	end
 
 	def show
@@ -22,8 +25,11 @@ class TestsController < ApplicationController
 	end
 
 	def update
-		@test.update(params_test)
-		redirect_to tests_path
+		if @test.update(params_test)
+			redirect_to tests_path
+		else
+			render :edit
+		end
 	end
 
 	def destroy
