@@ -1,6 +1,13 @@
 <p><%= link_to 'Create Question', new_test_question_path(test)%></p>
-<ul>
+<ol>
 <% test_questions.each do |question|%>
-	<li><%= question.body%></li>
+	<li>
+		<p><%= question.body%></p>
+		<p>
+			<%=link_to 'Show question', question_path(question)%>|
+			<%=link_to 'Edit question', edit_question_path(question)%>|
+			<%=link_to 'Delete question', question_path(question), method: :delete%>
+		</p>
+	</li>
 <%end%>
-</ul>
+</ol>
