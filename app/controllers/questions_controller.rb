@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
   def show; end
 
   def edit
+    @test=@question.test
   end
 
   def update
