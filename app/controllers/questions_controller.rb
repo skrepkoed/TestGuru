@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
   def index
   end
 
-  def new; end
+  def new
+    @question=Question.new
+  end
 
   def create
     question = @test.questions.new(question_params)
