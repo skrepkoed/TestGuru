@@ -1,5 +1,6 @@
 <h2>Question <%=@question.id%></h2>
 <p>
 	<%= @question.body%>
-	<%= link_to 'Delete question', question_path(@question), method: :delete %>
+	<%= link_to 'Delete question', question_path(@question), method: :delete %>|
+	<%= link_to 'Back', test_questions_path(@test)%>
 </p>
