@@ -4,3 +4,11 @@
 	<%= link_to 'Delete question', question_path(@question), method: :delete %>|
 	<%= link_to 'Back', test_questions_path(@question.test)%>
 </p>
+
+<h2>Answers</h2>
+
+<% link_to 'Create new answer', new_question_answer_path(@question)%>
+
+<ol>
+	<%= render @question.answers%>
+</ol>
