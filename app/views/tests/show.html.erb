@@ -1,0 +1,6 @@
+<h1>About test </h1>
+<h2>Title: <%= @test.title%></h2>
+<h2>Level: <%= @test.level%></h2>
+<h2>There are <%= pluralize(@test_questions.count, 'question')%> in test</h2>	
+<%= render '/shared/questions_list', test: @test%>
+	

@@ -1,9 +1,4 @@
 <h1>Questions#new</h1>
 <p>Find me in app/views/questions/new.html.erb</p>
-<h1>Create new Question</h1>
-<form action="/tests/<%=@test.id%>/questions" method='post'>
-	<input type="hidden" name="authenticity_token", value="<%= form_authenticity_token %>">
-	<label label-for='question_body'>Body:</label>
-	<input type="text" name="question[body]" id='question_body'>
-	<input type="submit" value="Create Question">
-</form>
+<h1><%=question_header(@question)%></h1>
+<%= render 'question_form',  question: [@test,@question] %>
