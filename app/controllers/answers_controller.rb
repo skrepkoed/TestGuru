@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
   end
   
   def new
-    @answers = @question.answers.new
+    @answer = @question.answers.new
   end
 
   
@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to @answer
     else
@@ -44,7 +44,7 @@ class AnswersController < ApplicationController
     end
 
     def find_question
-      @question=Question.find(params[:question_d])
+      @question=Question.find(params[:question_id])
     end
 
     def answer_params

@@ -7,7 +7,7 @@
 
 <h2>Answers</h2>
 
-<% link_to 'Create new answer', new_question_answer_path(@question)%>
+<%= link_to 'Create new answer', new_question_answer_path(@question)%>
 
 <ol>
 	<%= render @question.answers%>
