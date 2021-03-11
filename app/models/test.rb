@@ -15,4 +15,8 @@ class Test < ApplicationRecord
   def self.tests_by_category(title)
     tests_with_category.where('categories.title=?', title).order(title: :desc).pluck(:title)
   end
+
+  def questions_count
+    questions.count
+  end
 end

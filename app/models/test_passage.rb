@@ -17,6 +17,14 @@ class TestPassage < ApplicationRecord
   	current_question.nil?
   end
 
+  def test_result
+  	(correct_questions / test.questions_count.to_f * 100).floor(2)
+  end
+
+  def test_success?
+  	test_result>=85 ? true : false
+  end
+
   private
 
   def correct_answers?(answer_ids)
