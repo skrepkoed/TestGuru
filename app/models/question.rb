@@ -5,7 +5,5 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
 
-  def correct_answers
-  	answers.correct_answers
-  end
+  delegate :correct_answers, to: :answers
 end

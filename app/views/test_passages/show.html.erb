@@ -1,15 +1,19 @@
 <h1>Passing the <%= @test_passage.test.title%> test</h1>
 
 <p>
-	<%= @test_passage.current_question.body%>
+	<h2><%= @test_passage.current_question_number%> from <%= @test_passage.test.questions_count%></h2>
+	<br>
+	<p><%= @test_passage.current_question.body%></p>
 
 	<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|%>
+	  <ol>
 	  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-	    <p>
+	    <li>
 	    	<%= b.check_box id:"answer_ids_#{b.object.id}" %>
 	    	<%= b.label%>
-	    </p>
+	    </li>
 	  <%end%>
+	  </ol>
 	  <p><%= form.submit 'Next'%></p>
 	<%end%>
 </p>
