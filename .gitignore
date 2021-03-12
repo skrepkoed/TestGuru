@@ -6,6 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+/.rubocop.yml
+/.erb-lint.yml
+/test_guru.sublime-project
+/test_guru.sublime-workspace
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

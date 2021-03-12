@@ -1,4 +1,7 @@
 class TestPassage < ApplicationRecord
+  
+  TEST_RESULT_SUCCESS=85
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: 'question_id', optional: true
@@ -20,7 +23,7 @@ class TestPassage < ApplicationRecord
   end
 
   def test_success?
-    test_result >= 85
+    test_result >= TEST_RESULT_SUCCESS
   end
 
   def current_question_number

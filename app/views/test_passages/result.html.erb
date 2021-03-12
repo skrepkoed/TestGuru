@@ -1,7 +1,7 @@
 <h1>The <%= @test_passage.test.title %> test was complted!</h1>
 
 <%if  @test_passage.test_success?%>
-	<p class='success'>Success! Your result <%= @test_passage.test_result%></p>
+  <p class='success'>Success! Your result <%= @test_passage.test_result%></p>
 <%else%>
 	<p class='fail'>Fail. Try again! Your result <%= @test_passage.test_result%></p>
 <%end%>
