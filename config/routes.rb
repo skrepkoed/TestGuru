@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :users, only: :create
+  resources :sessions, only: :create
+  get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
   resources :tests do
     member do
       post :start

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :passed_tests, through: :test_passages, source: :test
   has_many :created_tests, class_name: 'Test'
 
-  validates :email, presence: true
+  has_secure_password
 
   def completed_tests(level)
     passed_tests.where(level: level)

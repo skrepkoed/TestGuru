@@ -1,0 +1,19 @@
+<h1>Log in</h1>
+
+<% if flash[:alert]%>
+  <%= content_tag :p, flash[:alert], class: 'flash alert'%>
+<%end%>
+
+<p>
+  <%= form_with url:sessions_path, local:true do |form|%>
+    <p>
+      <%= form.label :username%>
+      <%= form.text_field :username %>
+    </p>
+    <p>
+      <%= form.label :password%>
+      <%= form.password_field :password%>
+    </p>
+    <%= form.submit 'Log in!'%>
+  <%end%>
+</p>
