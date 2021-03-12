@@ -1,0 +1,22 @@
+.navbar{
+  height: 75px;
+  background-color: lightgrey;
+}
+
+.logo{
+  font-size: 30px;
+  color: green;
+  float: left;
+  position: relative;
+  top:20px;
+  left:10px;
+}
+
+.navigation{
+  font-size: 30px;
+  color: lightgreen;
+  float: right;
+  position: relative;
+  top:20px;
+  right:10px;
+}
