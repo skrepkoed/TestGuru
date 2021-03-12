@@ -1,9 +1,5 @@
 <h1>Log in</h1>
-
-<% if flash[:alert]%>
-  <%= content_tag :p, flash[:alert], class: 'flash alert'%>
-<%end%>
-
+<%= flash_message(:alert)%>
 <p>
   <%= form_with url:sessions_path, local:true do |form|%>
     <p>
