@@ -8,8 +8,6 @@ module ApplicationHelper
   end
 
   def flash_message(flag)
-    if flash[flag]
-      content_tag :p, flash[flag], class: "flash #{flag}"
-    end
+    tag.p(flash[flag], class: "flash #{flag}") if flash[flag]
   end
 end

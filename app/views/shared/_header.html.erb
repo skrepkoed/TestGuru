@@ -1,6 +1,6 @@
 <header>
   <nav class='navbar'>
-    <div class='logo'>TestGuru</div>
+    <div class='logo'><%= link_to 'TestGuru', '/'%> </div>
     <div class='navigation'>
       <% if logged_in?%>
         <%= link_to 'Log out', logout_path%>
@@ -10,4 +10,9 @@
       <%end%>
     </div>
   </nav>
+  <%if logged_in?%>
+    <h3>Welcome Guru <%= current_user.username%></h3>
+  <%else%>
+    <h3><%=flash[:goodbye]%></h3>
+  <%end%>
 </header>

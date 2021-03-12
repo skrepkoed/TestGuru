@@ -1,6 +1,5 @@
 class TestPassage < ApplicationRecord
-  
-  TEST_RESULT_SUCCESS=85
+  TEST_RESULT_SUCCESS = 85
 
   belongs_to :test
   belongs_to :user
