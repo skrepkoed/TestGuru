@@ -12,7 +12,6 @@
   </nav>
   <%if logged_in?%>
     <h3>Welcome Guru <%= current_user.username%></h3>
-  <%else%>
-    <h3><%=flash[:goodbye]%></h3>
   <%end%>
+  <%= flash_message(:goodbye)%>
 </header>

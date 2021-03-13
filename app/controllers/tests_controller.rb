@@ -37,7 +37,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @current_user.passed_tests.push(@test)
+    current_user.passed_tests.push(@test)
     redirect_to @current_user.test_passage(@test)
   end
 
