@@ -1,0 +1,14 @@
+<h2>Question for <%=@question.test.title%> test</h2>
+<p>
+	<%= @question.body%>
+	<%= link_to 'Delete question', admin_question_path(@question), method: :delete %>|
+	<%= link_to 'Back', admin_test_questions_path(@question.test)%>
+</p>
+
+<h2>Answers</h2>
+
+<%= link_to 'Create new answer', new_admin_question_answer_path(@question)%>
+
+<ol>
+	<%= render @question.answers%>
+</ol>
