@@ -1,12 +1,10 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :trackable, :confirmable
   has_many :test_passages
   has_many :passed_tests, through: :test_passages, source: :test
   has_many :created_tests, class_name: 'Test'
-
-  validates :email, :username, presence: true
-  validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-
-  has_secure_password
 
   def completed_tests(level)
     passed_tests.where(level: level)

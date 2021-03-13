@@ -2,15 +2,15 @@
   <nav class='navbar'>
     <div class='logo'><%= link_to 'TestGuru', '/'%> </div>
     <div class='navigation'>
-      <% if logged_in?%>
-        <%= link_to 'Log out', logout_path%>
+      <% if user_signed_in?%>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
       <%else%>
-        <%= link_to 'Log in', login_path%>
-        <%= link_to 'Sign up', signup_path%>
+        <%= link_to 'Log in', new_user_session_path%>
+        <%= link_to 'Sign up', new_user_registration_path%>
       <%end%>
     </div>
   </nav>
-  <%if logged_in?%>
+  <% if user_signed_in? %>
     <h3>Welcome Guru <%= current_user.username%></h3>
   <%end%>
   <%= flash_message(:goodbye)%>

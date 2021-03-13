@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :users, only: :create
-  resources :sessions, only: :create
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-  get :logout, to: 'sessions#destroy'
+  
+  root 'tests#index'
+  
+  devise_for :users, path: :gurus, path_names:{sign_in: :login, sign_out: :logout}
+  
   resources :tests do
     member do
       post :start
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :answers, shallow: true
     end
   end
+  
   resources :test_passages, only: %i[show update] do
     member do
       get :result
