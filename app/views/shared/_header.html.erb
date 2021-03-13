@@ -1,0 +1,17 @@
+<header>
+  <nav class='navbar'>
+    <div class='logo'><%= link_to 'TestGuru', '/'%> </div>
+    <div class='navigation'>
+      <% if logged_in?%>
+        <%= link_to 'Log out', logout_path%>
+      <%else%>
+        <%= link_to 'Log in', login_path%>
+        <%= link_to 'Sign up', signup_path%>
+      <%end%>
+    </div>
+  </nav>
+  <%if logged_in?%>
+    <h3>Welcome Guru <%= current_user.username%></h3>
+  <%end%>
+  <%= flash_message(:goodbye)%>
+</header>
