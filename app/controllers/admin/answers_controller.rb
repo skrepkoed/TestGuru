@@ -1,4 +1,4 @@
-class Admin::AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :set_answer, only: %i[show edit update destroy]
   before_action :find_question, only: %i[new create]
 
@@ -23,7 +23,7 @@ class Admin::AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to [:admin,@answer]
+      redirect_to [:admin, @answer]
     else
       render :edit
     end

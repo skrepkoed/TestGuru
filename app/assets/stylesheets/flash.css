@@ -1,9 +1,14 @@
 .flash{  
   border-left: 6px solid;
   background-color: lightgrey;
-  display: inline-block;
 }
 
 .alert{
    border-color: red;
+}
+
+.greeting{
+
+  border-color: blue;
+  font-size: 15px;
 }
