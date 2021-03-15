@@ -58,6 +58,23 @@ ru:
       level: "Уровень"
       author: "Автор"
       actions: "Действия"
+  test_passages:
+    show:
+      passind_test: "Сейчас вы проходите %{test} тест"
+      from: "из"
+      next: 'Следующий вопрос'
+      questions_counter:
+        one: "%{count} вопроса"
+        few: "%{count} вопросов"
+        many: "%{count} вопросов"
+    result:
+      completed: "%{test} тест завершен."
+      success: "Успех! %{user}, ваш результат %{result}.%"
+      fail: "Неудача! %{user}, ваш результат %{result}.%"
+      back: "К списку тестов"
+
+        
+
 
 
 
