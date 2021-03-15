@@ -1,0 +1,54 @@
+ru:
+  helpers:
+    submit:
+      test:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+    label:
+      test:
+        title: 'Название'
+        level: "Уровень"
+        author: "Автор"
+        category: 'Категория'
+    select:
+      test:
+        category_id: 
+        prompt: "Выберите категорию"
+  admin:
+    tests:
+      index:
+        header: 'Тесты'
+        title: "Название"
+        level: "Уровень"
+        author: "Автор"
+        actions: "Действия"
+        create: "Создать тест"
+      test:
+        show: "Детали"
+        edit: "Изменить тест"
+        delete:  "Удалить тест"
+        back: "К списку тестов"
+      new:
+        header: "Создать новый тест"
+      show:
+        header: "О тесте"
+        title: "Название"
+        level: "Уровень"
+        amount_questions: "Количество вопросов в тесте:"
+        questions_counter:
+          one: "%{count} вопрос"
+          few: "%{count} вопроса"
+          many: "%{count} вопросов"
+          other: "%{count} вопроса" 
+      edit:
+        header: "Редактировать тест"
+  shared:
+    questions_list:
+      show: "Детали"
+      create: "Создать новый вопрос"
+      edit: "Редактировать вопрос"
+      delete: "Удалить вопрос"
+      back: "К списку тестов"
+
+
+
