@@ -1,0 +1,11 @@
+<%= render '/shared/errors', resource: question%>
+<%= form_with model: [:admin, *question], local: true do |form| %>
+	<p>
+		<%= form.label :body%>
+		<%= form.text_field :body%>
+	</p>
+	<p>
+		<%= form.submit 'Save'%>
+	</p>
+<%end%>
+<%= link_to 'Back', admin_test_questions_path(@test)%>
