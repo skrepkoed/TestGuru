@@ -19,6 +19,9 @@ ru:
       answer: 
         body: "Содержание вопроса"
         correct: "Правильность"
+      user:
+        email: "Email"
+        password: "Пароль"
       errrors:
         messages:
           accepted: "поле должно быть отмечено"
