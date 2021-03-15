@@ -49,6 +49,15 @@ ru:
       edit: "Редактировать вопрос"
       delete: "Удалить вопрос"
       back: "К списку тестов"
+  tests:
+    test:
+      start: "Начать тест"
+    index:
+      header: 'Тесты'
+      title: "Название"
+      level: "Уровень"
+      author: "Автор"
+      actions: "Действия"
 
 
 
