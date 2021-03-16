@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+scope "(:lang)", lang:/ru|en/ do   
   
-  root 'tests#index'
   
   devise_for :users, path: :gurus, path_names:{sign_in: :login, sign_out: :logout}, controllers: { confirmations: 'users/confirmations' }
   
@@ -23,4 +23,7 @@ Rails.application.routes.draw do
       end
     end
   end
+end
+  root 'tests#index'
+  get '/:lang', to: 'tests#index'
 end

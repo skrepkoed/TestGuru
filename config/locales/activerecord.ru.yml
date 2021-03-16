@@ -12,7 +12,7 @@ ru:
       test:
         title: "Название"
         level: "Уровень"
-        category_id: "Категория"
+        category: "Категория"
         author: "Автор"
       question:
         body: "Содержание вопроса"

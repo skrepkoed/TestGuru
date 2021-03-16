@@ -10,10 +10,6 @@ ru:
         level: "Уровень"
         author: "Автор"
         category: 'Категория'
-    select:
-      test:
-        category_id: 
-        prompt: "Выберите категорию"
   admin:
     tests:
       index:
@@ -30,6 +26,8 @@ ru:
         back: "К списку тестов"
       new:
         header: "Создать новый тест"
+      test_form:
+        prompt: "Выберите категорию"
       show:
         header: "О тесте"
         title: "Название"
@@ -49,6 +47,12 @@ ru:
       edit: "Редактировать вопрос"
       delete: "Удалить вопрос"
       back: "К списку тестов"
+    errors:
+      errors_counter:
+        one: "Найдено %{count} ошибка"
+        few: "Найдено %{count} ошибки"
+        many: "Найдено %{count} ошибок"
+        other: "Найдено %{count} ошибки"
   tests:
     test:
       start: "Начать тест"
