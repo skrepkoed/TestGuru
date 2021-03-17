@@ -28,6 +28,7 @@ en:
         header: "Create new test"
       test_form:
         prompt: "Choose category"
+        back: "Back to tests"
       show:
         header: "About test"
         title: "Title"

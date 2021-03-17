@@ -28,6 +28,7 @@ ru:
         header: "Создать новый тест"
       test_form:
         prompt: "Выберите категорию"
+        back: "К списку тестов"
       show:
         header: "О тесте"
         title: "Название"
