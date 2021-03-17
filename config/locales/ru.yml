@@ -1,0 +1,85 @@
+ru:
+  helpers:
+    submit:
+      test:
+        create: 'Создать тест'
+        update: 'Обновить тест'
+    label:
+      test:
+        title: 'Название'
+        level: "Уровень"
+        author: "Автор"
+        category: 'Категория'
+  admin:
+    tests:
+      index:
+        header: 'Тесты'
+        title: "Название"
+        level: "Уровень"
+        author: "Автор"
+        actions: "Действия"
+        create: "Создать тест"
+      test:
+        show: "Детали"
+        edit: "Изменить тест"
+        delete:  "Удалить тест"
+        back: "К списку тестов"
+      new:
+        header: "Создать новый тест"
+      test_form:
+        prompt: "Выберите категорию"
+        back: "К списку тестов"
+      show:
+        header: "О тесте"
+        title: "Название"
+        level: "Уровень"
+        amount_questions: "Количество вопросов в тесте:"
+        questions_counter:
+          one: "%{count} вопрос"
+          few: "%{count} вопроса"
+          many: "%{count} вопросов"
+          other: "%{count} вопроса" 
+      edit:
+        header: "Редактировать тест"
+  shared:
+    questions_list:
+      show: "Детали"
+      create: "Создать новый вопрос"
+      edit: "Редактировать вопрос"
+      delete: "Удалить вопрос"
+      back: "К списку тестов"
+    errors:
+      errors_counter:
+        one: "Найдено %{count} ошибка"
+        few: "Найдено %{count} ошибки"
+        many: "Найдено %{count} ошибок"
+        other: "Найдено %{count} ошибки"
+  tests:
+    test:
+      start: "Начать тест"
+    index:
+      header: 'Тесты'
+      title: "Название"
+      level: "Уровень"
+      author: "Автор"
+      actions: "Действия"
+  test_passages:
+    show:
+      passind_test: "Сейчас вы проходите %{test} тест"
+      from: "из"
+      next: 'Следующий вопрос'
+      questions_counter:
+        one: "%{count} вопроса"
+        few: "%{count} вопросов"
+        many: "%{count} вопросов"
+    result:
+      completed: "%{test} тест завершен."
+      success: "Успех! %{user}, ваш результат %{result}.%"
+      fail: "Неудача! %{user}, ваш результат %{result}.%"
+      back: "К списку тестов"
+
+        
+
+
+
+
