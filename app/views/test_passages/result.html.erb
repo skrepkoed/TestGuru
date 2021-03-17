@@ -1,9 +1,20 @@
 <h1><%= t( '.completed', test: @test_passage.test.title)%> </h1>
+<div class="row justify-content-start">
+  <div class="form-group col-12 col-md-3 ml-3">
+    <div clas="card">
+      <%if  @test_passage.test_success?%>
+      <div class="card-body border border-success">
+          <h5 class='card-title'> <%= t('.success', user: current_user.username, result: @test_passage.test_result)%></h5>
+      </div>
+      <%else%>
+        <div class="card-body border border-danger">
+        	<h5 class='card-title'><%= t('.fail', user: current_user.username, result: @test_passage.test_result)%></h5>
+        </div>
+      <%end%>
+        <p><%= button_to t('.back'), tests_path, class: "btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
 
-<%if  @test_passage.test_success?%>
-  <p class='success'> <%= t('.success', user: current_user.username, result: @test_passage.test_result)%></p>
-<%else%>
-	<p class='fail'><%= t('.fail', user: current_user.username, result: @test_passage.test_result)%></p>
-<%end%>
-
-<p><%= link_to t('.back'), tests_path%></p>
+  
+</div>

@@ -3,17 +3,29 @@
 <p>
 	<h2><%= @test_passage.current_question_number%> <%= t('.from')%> <%= t('.questions_counter', count: @test_passage.test.questions_count)%></h2>
 	<br>
-	<p><%= @test_passage.current_question.body%></p>
-
-	<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|%>
-	  <ol>
-	  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-	    <li>
-	    	<%= b.check_box id:"answer_ids_#{b.object.id}" %>
-	    	<%= b.label%>
-	    </li>
-	  <%end%>
-	  </ol>
-	  <p><%= form.submit t('.next') %></p>
-	<%end%>
+	<div class="form-group row">
+		<div class="form-group col-12 col-md-6 ml-3">
+			<div class="card">
+			  <div class="card-body">
+					<%= @test_passage.current_question.body%>
+				</div>
+			</div>
+		</div>
+	<div class="form-group col-12 col-md-6 ml-3">
+		<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|%>
+		  <div class="card">
+			  <ol class="list-group list-group-flush">
+			  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+			    <li class="list-group-item">
+			    	<%= b.check_box id:"answer_ids_#{b.object.id}" %>
+			    	<%= b.label%>
+			    </li>
+			  <%end%>
+			  </ol>
+			</div>
+	</div>
+	  <div class="form-group col-12 col-md-6 ml-3"><%= form.submit t('.next'), class: "btn btn-success" %></div>
+			<%end%>
+		</div>
+	</div>
 </p>
