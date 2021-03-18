@@ -1,6 +1,6 @@
 class GistQuestionService
-  attr_reader :client, :test, :question
-  
+  attr_reader :client, :test, :question, :respond
+
   def initialize(question, client: nil)
     @client = client || GitHubClient.new
     @question = question
@@ -8,21 +8,24 @@ class GistQuestionService
   end
 
   def call
-    client.create_gist(gist_params)
+    @respond = client.create_gist(gist_params)
+  end
+
+  def url_hash
+    respond[:id]
   end
 
   private
 
   def gist_params
-    {description: "Question from test #{test.title}",
-     public: true,
-     files: {'test-guru-question.txt'=>{content:gist_content}}
-    }
+    { description: "#{I18n.t('.question_from')} #{test.title}",
+      public: true,
+      files: { 'test-guru-question.txt' => { content: gist_content } } }
   end
 
   def gist_content
     content = [@question.body]
-    content+= @question.answers.pluck(:body)
+    content += @question.answers.pluck(:body)
     content.join("\n")
   end
 end

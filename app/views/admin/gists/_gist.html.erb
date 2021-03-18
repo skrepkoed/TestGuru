@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to(preview_with_length(gist.body, 25), admin_question_path(gist.question_id))%></td>
+  <td><%= link_to_gist(gist)%></td>
+  <td><%= gist.email%></td>
+</tr>

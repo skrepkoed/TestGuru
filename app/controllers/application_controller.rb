@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     flash_greeting(user)
-    user.admin? ? admin_tests_path : root_path 
+    user.admin? ? admin_tests_path : root_path
   end
 
-  def after_sign_out_path_for(user)
-    flash[:goodbye] = "Goodbye"
+  def after_sign_out_path_for(_user)
+    flash[:goodbye] = 'Goodbye'
     new_user_session_path
   end
 
@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale=I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
   end
 end
