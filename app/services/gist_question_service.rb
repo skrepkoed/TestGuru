@@ -1,0 +1,2 @@
+class GistQuestionService
+end
