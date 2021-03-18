@@ -1,17 +1,21 @@
 <header>
-  <nav class='navbar'>
-    <div class='logo'><%= link_to 'TestGuru', '/'%> </div>
-    <div class='navigation'>
+  <nav class='navbar navbar-expand-lg navbar-light bg-light'>
+    <% unless current_user&.admin?%>
+    <div class='navbar-brand'><%= link_to 'TestGuru', '/'%> </div>
+    <%else%>
+    <div class='navbar-brand'><%= link_to 'TestGuru', '/'%> </div>
+    <div class='navbar-brand'><%= link_to 'TestGuruAmin', admin_tests_path%> </div>
+    <%end%>
+    <div class='navbar-nav flex-fill justify-content-end'>
       <% if user_signed_in?%>
-        <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-link" %>
       <%else%>
-        <%= link_to 'Log in', new_user_session_path%>
-        <%= link_to 'Sign up', new_user_registration_path%>
+        <%= link_to 'Log in', new_user_session_path, class: "nav-link"%>
+        <%= link_to 'Sign up', new_user_registration_path, class: "nav-link"%>
       <%end%>
-    </div>
+      <% if user_signed_in? %>
+        <span class="navbar-text">Welcome Guru <%= current_user.username%></span>
+      <%end%>
+      </div>
   </nav>
-  <% if user_signed_in? %>
-    <h3>Welcome Guru <%= current_user.username%></h3>
-  <%end%>
-  <%= flash_message(:goodbye)%>
 </header>
