@@ -1,7 +1,13 @@
 class GitHubClient
+  
   attr_accessor :client
+  
   def initialize
     @client=setup_github_client
+  end
+
+  def create_gist(params)
+    client.create_gist(params)
   end
 
   private
