@@ -10,6 +10,7 @@
 /.erb-lint.yml
 /test_guru.sublime-project
 /test_guru.sublime-workspace
+/.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
