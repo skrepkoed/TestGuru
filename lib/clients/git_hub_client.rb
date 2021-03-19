@@ -10,6 +10,10 @@ class GitHubClient
     client.create_gist(params)
   end
 
+  def last_response_success?
+    client.last_response.status == 201
+  end
+
   private
 
   def setup_github_client
