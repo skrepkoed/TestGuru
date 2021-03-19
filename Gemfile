@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
  #gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 6.0.0'
+gem "octokit", "~> 4.0"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do

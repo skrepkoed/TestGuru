@@ -1,4 +1,5 @@
 en:
+  question_from: 'Question from test'
   helpers:
     submit:
       test:
@@ -59,6 +60,10 @@ en:
       level: "Level"
       author: "Author"
       actions: "Actions"
+  gists:
+    create:
+      gist_success_html: 'Gist %{gist} successfuly created'
+      gist_fail: 'Something wrong'
   test_passages:
     show:
       passind_test: "You are passing %{test} test "
@@ -66,8 +71,7 @@ en:
       next: 'Next question'
       questions_counter:
         one: "%{count} question"
-        
-        many: "%{count} questions"
+        other: "%{count} questions"
     result:
       completed: "%{test} test is completed."
       success: "Success! %{user}, your result %{result}.%"
