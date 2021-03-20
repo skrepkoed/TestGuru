@@ -27,6 +27,12 @@ function sortRowsByTitle() {
     
 
     let sortedTable = document.createElement('table')
+    let tableClasses = []
+
+    for (var i = 0; i < table.classList.length; i++) {
+      tableClasses.push(table.classList[i])
+    }
+    sortedTable.classList.add(...tableClasses)
     sortedTable.appendChild(rows[0])
 
     for (var i = 0; i < sortedRows.length; i++) {
