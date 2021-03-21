@@ -74,8 +74,9 @@ ru:
   test_passages:
     show:
       passind_test: "Сейчас вы проходите %{test} тест"
-      from: "из"
       next: 'Следующий вопрос'
+    progress_bar:
+      from: "из"
       questions_counter:
         one: "%{count} вопроса"
         few: "%{count} вопросов"

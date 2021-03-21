@@ -70,8 +70,9 @@ en:
   test_passages:
     show:
       passind_test: "You are passing %{test} test "
-      from: "from"
       next: 'Next question'
+    progress_bar:
+      from: "from"
       questions_counter:
         one: "%{count} question"
         other: "%{count} questions"
