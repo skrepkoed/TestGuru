@@ -27,6 +27,8 @@ en:
         back: "Back to tests"
       new:
         header: "Create new test"
+      form_inline:
+        submit: "OK"
       test_form:
         prompt: "Choose category"
         back: "Back to tests"

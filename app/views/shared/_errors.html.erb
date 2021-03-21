@@ -1,6 +1,8 @@
 <% resource.each do |resource|%>
-<% if resource.errors.present?%>
-	<div>
+
+<% if resource.present? && resource.errors.present?%>
+	
+  <div>
 		<h2> <%= t('.errors_counter', count: resource.errors.count) %>:</h2>
 		<ul>
 			<%resource.errors.full_messages.each do  |message|%>
@@ -9,4 +11,6 @@
 		</ul>
 	</div>
 <%end%>
+
 <%end%>
+

@@ -25,6 +25,8 @@ ru:
         edit: "Изменить тест"
         delete:  "Удалить тест"
         back: "К списку тестов"
+      form_inline:
+        submit: "OK"
       new:
         header: "Создать новый тест"
       test_form:
