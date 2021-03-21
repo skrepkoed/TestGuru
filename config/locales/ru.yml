@@ -36,6 +36,7 @@ ru:
         header: "О тесте"
         title: "Название"
         level: "Уровень"
+        edit: 'Изменить тест'
         amount_questions: "Количество вопросов в тесте:"
         questions_counter:
           one: "%{count} вопрос"

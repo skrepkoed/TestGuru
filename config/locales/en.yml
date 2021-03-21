@@ -37,6 +37,7 @@ en:
         title: "Title"
         level: "Level"
         amount_questions: "There are"
+        edit: 'Edit'
         questions_counter:
           one: "%{count} question"
           other: "%{count} questions" 
