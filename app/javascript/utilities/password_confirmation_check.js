@@ -27,6 +27,14 @@ document.addEventListener('turbolinks:load', function() {
 
   function inputConfirmation(element, array){
     let confirmation_field_icon = array.filter(item => item.id.includes('_confirmation'))[0].parentNode
+    
+    if (array.some(item => (item.value==''))) {
+      
+      confirmation_field_icon.querySelector('.octicon-check').classList.add('hide')
+      confirmation_field_icon.querySelector('.octicon-x').classList.add('hide')
+      return
+    }
+
     if (array.every(item => element.target.value===item.value)){
     
       confirmation_field_icon.querySelector('.octicon-check').classList.remove('hide')
@@ -36,12 +44,6 @@ document.addEventListener('turbolinks:load', function() {
       
       confirmation_field_icon.querySelector('.octicon-x').classList.remove('hide')
       confirmation_field_icon.querySelector('.octicon-check').classList.add('hide')
-    }
-
-    if (array.some(item => (item.value==''))) {
-      
-      confirmation_field_icon.querySelector('.octicon-check').classList.add('hide')
-      confirmation_field_icon.querySelector('.octicon-x').classList.add('hide')
     }
     
   }
