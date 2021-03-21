@@ -1,13 +1,22 @@
 <h1><%= t('.header') %></h1>
 <%= link_to  t('.create'), new_admin_test_path%>
-<table>
-	<tr>
-		<th><%= t('.title') %></th>
-		<th><%= t('.level') %></th>
-		<th colspan='3'><%= t('.actions') %></th>
-    <th><%= t('.author') %></th>
-	</tr>
-	<tbody>
-		<%= render @tests%>
-	</tbody>
-</table>
+<div class="row">
+  <div class="container col-12 col-md-6 ml-3">
+    <table class="table table-hover table-bordered">
+    	<thead>
+      <tr class="table-success text-center">
+    		<th class="sort-by-title pointer" scope="col"><%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide'%>
+        <%= octicon 'arrow-down', class: 'text-success hide'%>
+        </th>
+    		<th scope="col"><%= t('.level') %></th>
+    		<th colspan='3' scope="col"><%= t('.actions') %></th>
+        <th scope="col"><%= t('.author') %></th>
+    	</tr>
+      </thead>
+    	<tbody>
+    		<%= render @tests%>
+    	</tbody>
+    </table>
+  </div>
+</div>
