@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("utilities/sorting")
 require("utilities/password_confirmation_check")
+require ("utilities/form_inline.js")
 import "bootstrap"
 import "../stylesheets/application"
 

@@ -2,14 +2,14 @@
 
 <% if resource.present? && resource.errors.present?%>
 	
-  <div>
+  <%= content_tag :div, class: 'resource-errors', data: {resource_id: resource.id} do %>
 		<h2> <%= t('.errors_counter', count: resource.errors.count) %>:</h2>
 		<ul>
 			<%resource.errors.full_messages.each do  |message|%>
 			<li><%= message%></li>
 			<%end%>
 		</ul>
-	</div>
+	<% end %>
 <%end%>
 
 <%end%>
