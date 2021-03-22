@@ -11,8 +11,6 @@ require_relative './seeds/003_questions'
 require_relative './seeds/004_answers'
 require_relative './seeds/005_users'
 require_relative './seeds/006_test_user'
-admin=User.create(first_name:'Rachel', last_name:'Green', username:'Rachel', email: 'rachel@rachel.com',
-                  password:'314314', type: 'Admin')
 categories = Category.create(CategorySeed.seed(5))
 categories.each { |category| Test.create(TestSeed.seed(5, category.id, admin)) }
 Test.select(:id).each { |test| Question.create(QuestionSeed.seed(10, test.id)) }
