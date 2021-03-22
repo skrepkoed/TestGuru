@@ -3,7 +3,7 @@ class TestSeed
     data = []
     number.times do
       data << { title: THEMES.sample.name, level: LEVELS.sample,
-                category_id: category_id, user_id:author.id }
+                category_id: category_id, user_id: author }
     end
     data
   end
