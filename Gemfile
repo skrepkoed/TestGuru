@@ -25,6 +25,7 @@ gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 6.0.0'
 gem "octokit", "~> 4.0"
 gem 'octicons_helper'
+gem 'faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -34,7 +35,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'faker'
+  
   gem 'pry'
   gem 'dotenv-rails'
 end
