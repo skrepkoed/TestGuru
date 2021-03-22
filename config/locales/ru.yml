@@ -25,6 +25,8 @@ ru:
         edit: "Изменить тест"
         delete:  "Удалить тест"
         back: "К списку тестов"
+      form_inline:
+        submit: "OK"
       new:
         header: "Создать новый тест"
       test_form:
@@ -34,6 +36,7 @@ ru:
         header: "О тесте"
         title: "Название"
         level: "Уровень"
+        edit: 'Изменить тест'
         amount_questions: "Количество вопросов в тесте:"
         questions_counter:
           one: "%{count} вопрос"
@@ -71,8 +74,9 @@ ru:
   test_passages:
     show:
       passind_test: "Сейчас вы проходите %{test} тест"
-      from: "из"
       next: 'Следующий вопрос'
+    progress_bar:
+      from: "из"
       questions_counter:
         one: "%{count} вопроса"
         few: "%{count} вопросов"

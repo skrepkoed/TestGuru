@@ -27,6 +27,8 @@ en:
         back: "Back to tests"
       new:
         header: "Create new test"
+      form_inline:
+        submit: "OK"
       test_form:
         prompt: "Choose category"
         back: "Back to tests"
@@ -35,6 +37,7 @@ en:
         title: "Title"
         level: "Level"
         amount_questions: "There are"
+        edit: 'Edit'
         questions_counter:
           one: "%{count} question"
           other: "%{count} questions" 
@@ -67,8 +70,9 @@ en:
   test_passages:
     show:
       passind_test: "You are passing %{test} test "
-      from: "from"
       next: 'Next question'
+    progress_bar:
+      from: "from"
       questions_counter:
         one: "%{count} question"
         other: "%{count} questions"
