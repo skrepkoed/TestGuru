@@ -17,5 +17,9 @@ class Test < ApplicationRecord
     tests_with_category.where('categories.title=?', title).order(title: :desc).pluck(:title)
   end
 
+  def correct_test?
+    !(questions.empty? || questions.joins(:answers).empty?)
+  end
+
   delegate :count, to: :questions, prefix: true
 end

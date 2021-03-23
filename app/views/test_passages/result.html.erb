@@ -1,6 +1,7 @@
 <h1><%= t( '.completed', test: @test_passage.test.title)%> </h1>
-<div class="row justify-content-start">
-  <div class="form-group col-12 col-md-3 ml-3">
+ <%= render 'test_passages/progress_bar', test_passage: @test_passage%>
+
+  <div class="form-group col-12 col-md-3 ml-3 mt-5">
     <div clas="card">
       <%if  @test_passage.test_success?%>
       <div class="card-body border border-success">
@@ -15,4 +16,3 @@
       </div>
     </div>
   </div>
-</div>

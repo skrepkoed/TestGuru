@@ -3,8 +3,11 @@ document.addEventListener('turbolinks:load', function () {
  if (progressBar) {
    let totalQuestions = progressBar.dataset.totalQuestions
    let currentQuestionNumber = progressBar.dataset.questionNumber
-   let percent = Math.round((currentQuestionNumber/totalQuestions)*100)
-   progressBar.style.width = `${percent}%`
+   let completed = progressBar.dataset.completed === 'true'
+   if (!completed) {
+     var percent = Math.round(((currentQuestionNumber-1)/totalQuestions)*100)
+    }else{var percent = 100}
+    progressBar.style.width = `${percent}%`
    console.log(progressBar.style)
   }
 })

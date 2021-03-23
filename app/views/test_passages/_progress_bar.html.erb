@@ -1,4 +1,5 @@
+  <div class= 'col-12 col-md-6'>
   <span><%= test_passage.current_question_number %> <%= t('.from')%> <%= t('.questions_counter', count: test_passage.test.questions_count)%></span>
-  <%= content_tag :div, class: 'progress-bar', data:{question_number: test_passage.current_question_number, total_questions: test_passage.test.questions_count} do  %>
+  <%= content_tag :div, class: 'progress-bar', data:{question_number: test_passage.current_question_number, total_questions: test_passage.test.questions_count, completed: test_passage.completed?} do  %>
   <%end%>
-  
+  </div>
