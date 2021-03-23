@@ -5,11 +5,11 @@ class TestsController < ApplicationController
   end
 
   def start
-    if @test.correct_test?
+    if @test.under_construction?
       current_user.passed_tests.push(@test)
       redirect_to current_user.test_passage(@test)
     else
-      flash[:notice] = "Test #{@test.title} is under construction"
+      flash[:notice] =  t('.test_under_construction', test: @test.title) 
       redirect_to tests_path
     end
   end

@@ -61,6 +61,8 @@ ru:
   tests:
     test:
       start: "Начать тест"
+    start:
+      test_under_construction: "Тест %{test} в стадии создания"
     index:
       header: 'Тесты'
       title: "Название"
