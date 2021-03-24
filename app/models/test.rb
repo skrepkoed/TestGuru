@@ -18,7 +18,7 @@ class Test < ApplicationRecord
   end
 
   def under_construction?
-    !(questions.empty? || questions.joins(:answers).empty?)
+    !(questions.empty? || questions.left_outer_joins(:answers).where('answers.id IS NULL').exists?)
   end
 
   delegate :count, to: :questions, prefix: true
