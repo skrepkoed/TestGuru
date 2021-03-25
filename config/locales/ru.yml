@@ -61,6 +61,8 @@ ru:
   tests:
     test:
       start: "Начать тест"
+    start:
+      test_under_construction: "Тест %{test} в стадии создания"
     index:
       header: 'Тесты'
       title: "Название"
@@ -75,6 +77,7 @@ ru:
     show:
       passind_test: "Сейчас вы проходите %{test} тест"
       next: 'Следующий вопрос'
+      create_gist: 'Создать Gist'
     progress_bar:
       from: "из"
       questions_counter:

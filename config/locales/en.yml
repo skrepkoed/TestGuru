@@ -57,6 +57,8 @@ en:
   tests:
     test:
       start: "Start test"
+    start:
+      test_under_construction: "Test %{test} is under construction"
     index:
       header: 'Tests'
       title: "Title"
@@ -71,6 +73,7 @@ en:
     show:
       passind_test: "You are passing %{test} test "
       next: 'Next question'
+      create_gist: 'Create Gist'
     progress_bar:
       from: "from"
       questions_counter:

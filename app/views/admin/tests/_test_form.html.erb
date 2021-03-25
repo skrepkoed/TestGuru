@@ -13,6 +13,13 @@
 	<%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt')%>
 </p>
 <p>
+  <%= form.label :under_construction%>
+  <br>
+  <%= radio_button('test', 'under_construction', false) %><span>No</span>
+  <br>
+  <%= radio_button('test', 'under_construction', true) %><span>Yes</span>
+</p>
+<p>
 	<%= form.submit%>
 </p>
 <%end%>

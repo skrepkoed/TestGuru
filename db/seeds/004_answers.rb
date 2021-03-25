@@ -5,6 +5,7 @@ class AnswerSeed
       data << { body: Faker::Lorem.sentence(word_count: 3, supplemental: true),
                 question_id: question_id }
     end
+    data.sample[:correct] = true
     data
   end
 end

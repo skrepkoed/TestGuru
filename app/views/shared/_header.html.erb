@@ -15,6 +15,7 @@
       <%end%>
       <% if user_signed_in? %>
         <span class="navbar-text">Welcome Guru <%= current_user.username%></span>
+        <span><%= link_to 'Feedback', new_feedback_path, class: "nav-link" %> </span>
       <%end%>
       </div>
   </nav>
