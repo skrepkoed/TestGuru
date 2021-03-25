@@ -13,7 +13,9 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result; end
+  def result
+    current_user.badges<<Badge.define_badge(@test_passage)
+  end
 
   private
 

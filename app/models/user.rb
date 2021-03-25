@@ -5,10 +5,15 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :passed_tests, through: :test_passages, source: :test
   has_many :created_tests, class_name: 'Test'
-  has_many :badges, through: :badge_suers
+  has_many :badge_users
+  has_many :badges, through: :badge_users
 
   def completed_tests(level)
     passed_tests.where(level: level)
+  end
+
+  def succesfully_passed_tests
+    passed_tests.select{|test_passage| test_passage.test_success?}
   end
 
   def test_passage(test)
