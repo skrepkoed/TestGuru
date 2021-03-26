@@ -4,7 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: 'question_id', optional: true
-
+  has_many :badge_users
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
@@ -34,6 +34,13 @@ class TestPassage < ApplicationRecord
     end
   end
 
+  def define_badges
+    report = {:category_id => category_finished?,
+              :level => level_finished?,
+              :first_atempt => first_atempt?
+              } 
+  end
+
   private
 
   def correct_answers?(answer_ids)
@@ -48,6 +55,29 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question&.id).first
+  end
+
+   def category_finished?
+    category_tests = test.category.tests
+    if !category_tests.where.not(id:Test.joins(:test_passages).where(test_passages:{success:true, test_id: category_tests.pluck(:id), user_id:user.id}).pluck(:id)).exists?
+      test.category
+    end
+  end
+
+  def level_finished?
+    level = test.level
+    case level
+    when 0..1 then tests = Test.easy
+    when 2..4 then tests = Test.middle
+    when 5..Float::INFINITY then tests = Test.hard
+    end
+    if !tests.where.not(id: Test.joins(:test_passages).where(test_passages:{success:true, user_id: user.id}, tests:{level: level }).pluck(:id)).exists?
+      level
+    end
+  end
+
+  def first_atempt?
+    self.class.where(test_id: test.id, user_id: user.id).order(:updated_at).first.success == true
   end
 
   def before_validation_set_first_question

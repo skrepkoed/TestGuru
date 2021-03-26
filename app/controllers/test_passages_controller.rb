@@ -1,5 +1,6 @@
 class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result]
+  before_action :define_badges, only: %i[result]
   def show; end
 
   def update
@@ -14,12 +15,18 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-    current_user.badges<<Badge.define_badge(@test_passage)
+    
   end
 
   private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def define_badges
+    @badges=Badge.where(@test_passage.define_badges)
+    #byebug
+    @badges.each{|badge| BadgeUser.create(user_id: current_user.id , badge_id: badge.id, test_passage_id: @test_passage.id)}
   end
 end
