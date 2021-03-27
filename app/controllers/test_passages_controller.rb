@@ -25,8 +25,8 @@ class TestPassagesController < ApplicationController
   end
 
   def define_badges
-    @badges=Badge.where(@test_passage.define_badges)
-    #byebug
+    @badges=Badge.search_badge(@test_passage.report_achevments)
+    byebug
     @badges.each{|badge| BadgeUser.create(user_id: current_user.id , badge_id: badge.id, test_passage_id: @test_passage.id)}
   end
 end

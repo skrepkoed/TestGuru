@@ -34,11 +34,10 @@ class TestPassage < ApplicationRecord
     end
   end
 
-  def define_badges
-    report = {:category_id => category_finished?,
-              :level => level_finished?,
-              :first_atempt => first_atempt?
-              } 
+  def report_achevments
+    {'category_id' => category_finished?,
+     'level' => level_finished?,
+     'first_atempt' => first_atempt?} 
   end
 
   private
@@ -58,26 +57,33 @@ class TestPassage < ApplicationRecord
   end
 
    def category_finished?
-    category_tests = test.category.tests
-    if !category_tests.where.not(id:Test.joins(:test_passages).where(test_passages:{success:true, test_id: category_tests.pluck(:id), user_id:user.id}).pluck(:id)).exists?
-      test.category
+    #category_tests = Test.where(category_id: user.passed_tests.select(:category_id))
+    user_test_by_category = Test.group(:category_id).where(id: user.passed_tests.pluck(:id)).size
+    category_tests = Test.group(:category_id).where(category_id: user.passed_tests.select(:category_id)).size
+    category_tests.select{|key,value| user_test_by_category[key]==value }.keys
+=begin
+    if !category_tests.where.not(id:Test.joins(:test_passages).where(test_passages:{success:true, test_id: category_tests.pluck(:id), user_id:user.id}).pluck(:id))
+      test.category.id
     end
+=end
   end
 
   def level_finished?
-    level = test.level
-    case level
-    when 0..1 then tests = Test.easy
-    when 2..4 then tests = Test.middle
-    when 5..Float::INFINITY then tests = Test.hard
-    end
+    user_test_by_level = Test.group(:level).where(id: user.passed_tests.pluck(:id)).size
+    tests_by_level = Test.group(:level).where(level: user.passed_tests.select(:level)).size
+    tests_by_level.select{|key,value| user_test_by_level[key]==value }.keys
+=begin 
+    level = user.passed_tests.pluck(:level)
+    tests=Test.where(level:level)
     if !tests.where.not(id: Test.joins(:test_passages).where(test_passages:{success:true, user_id: user.id}, tests:{level: level }).pluck(:id)).exists?
       level
     end
+=end
   end
 
   def first_atempt?
-    self.class.where(test_id: test.id, user_id: user.id).order(:updated_at).first.success == true
+    #self.class.where(test_id: test.id, user_id: user.id).order(:updated_at).first.success == true
+    self.class.select("DISTINCT ON(test_id) *").order("test_id, updated_at ASC").select{|tp| tp.success==true}.pluck(:test_id)
   end
 
   def before_validation_set_first_question

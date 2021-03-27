@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_03_26_140332) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
     t.integer "level"
-    t.boolean "first_atempt"
+    t.integer "first_atempt"
   end
 
   create_table "categories", force: :cascade do |t|
