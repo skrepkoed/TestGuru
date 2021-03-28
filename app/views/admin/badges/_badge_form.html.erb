@@ -17,7 +17,7 @@
   <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt')%>
 </p>
 <p>
-  <%= form.label :first_atempt, 'User passed  test with title with first_atempt'%>
+  <%= form.label :first_atempt, 'User passed test with title with first_atempt'%>
     <%= form.collection_select :first_atempt, Test.all, :id, :title, prompt: t('.prompt')%>
 </p>
 <p>

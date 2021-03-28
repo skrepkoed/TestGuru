@@ -4,7 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: 'question_id', optional: true
-  has_many :badge_users
+  has_many :badge_users, dependent: :destroy
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
@@ -57,32 +57,18 @@ class TestPassage < ApplicationRecord
   end
 
    def category_finished?
-    #category_tests = Test.where(category_id: user.passed_tests.select(:category_id))
     user_test_by_category = Test.group(:category_id).where(id: user.passed_tests.pluck(:id)).size
     category_tests = Test.group(:category_id).where(category_id: user.passed_tests.select(:category_id)).size
     category_tests.select{|key,value| user_test_by_category[key]==value }.keys
-=begin
-    if !category_tests.where.not(id:Test.joins(:test_passages).where(test_passages:{success:true, test_id: category_tests.pluck(:id), user_id:user.id}).pluck(:id))
-      test.category.id
-    end
-=end
   end
 
   def level_finished?
     user_test_by_level = Test.group(:level).where(id: user.passed_tests.pluck(:id)).size
     tests_by_level = Test.group(:level).where(level: user.passed_tests.select(:level)).size
     tests_by_level.select{|key,value| user_test_by_level[key]==value }.keys
-=begin 
-    level = user.passed_tests.pluck(:level)
-    tests=Test.where(level:level)
-    if !tests.where.not(id: Test.joins(:test_passages).where(test_passages:{success:true, user_id: user.id}, tests:{level: level }).pluck(:id)).exists?
-      level
-    end
-=end
   end
 
   def first_atempt?
-    #self.class.where(test_id: test.id, user_id: user.id).order(:updated_at).first.success == true
     self.class.select("DISTINCT ON(test_id) *").order("test_id, updated_at ASC").select{|tp| tp.success==true}.pluck(:test_id)
   end
 

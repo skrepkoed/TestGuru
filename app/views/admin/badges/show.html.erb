@@ -1,0 +1,6 @@
+<h1><%= t('.header')%> </h1>
+<p><%= t('.title')%>: <%= @badge.title%></p>
+<p><%= t('.picture')%>: <%= @badge.picture%></p>
+<p><%= t('.level')%>: <%= @badge.level%></p>
+<p><%= t('.first_atempt')%>: <%= @badge.first_atempt%></p>
+<%= link_to t('.edit'), edit_admin_badge_path(@badge) %>

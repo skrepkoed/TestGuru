@@ -1,18 +1,16 @@
 class Badge < ApplicationRecord
-  attr_accessor :report
-  has_many :badge_users
+  has_many :badge_users, dependent: :destroy
   has_many :users, through: :badge_users
 
+  validates :title, presence: true
+  validates :level, numericality: {only_integer: true}
+
   def self.search_badge(report)
-    value = report.values
-    byebug
-    where("category_id=? OR level=? OR first_atempt=?", *value).select do |badge|
-      byebug
+    all.select do |badge|
       badge_attributes = badge.badge_attributes(report)
-      badge_attributes==badge_attributes.select do |key,value|
+      badge_attributes == badge_attributes.select do |key,value|
         report[key].include?(value)
       end
-      
     end
   end
 
