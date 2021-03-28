@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       post :start
     end
   end
+
+   resources :badges, only: %i[index show] 
+   get 'achievements', to: 'badges#achievements'
   
   resources :test_passages, only: %i[show update] do
     post :gist, to: 'gists#create'

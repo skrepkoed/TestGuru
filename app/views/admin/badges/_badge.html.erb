@@ -1,7 +1,7 @@
-<tr>
+<tr class="text-center">
   <td><%= badge.title %></td>
-  <td><%= badge.picture%></td>
+  <td><%= octicon badge.picture, height:24 %></td>
   <td><%= link_to t('.show'), admin_badge_path(badge) %></td>
-  <td><%= link_to t('.edit'), edit_admin_badge_path(badge), class: 'form-inline-link', data: {badge_id: badge.id} %></td>
+  <td><%= link_to t('.edit'), edit_admin_badge_path(badge) %></td>
   <td><%= link_to t('.delete'), admin_badge_path(badge), method: :delete %></td>
 </tr>

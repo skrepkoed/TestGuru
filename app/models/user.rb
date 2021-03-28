@@ -12,6 +12,10 @@ class User < ApplicationRecord
     passed_tests.where(level: level)
   end
 
+  def achievements
+    @badges=badges.distinct.order(updated_at: :desc)
+  end
+
   def succesfully_passed_tests
     passed_tests.select{|test_passage| test_passage.test_success?}
   end

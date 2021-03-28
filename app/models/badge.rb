@@ -3,7 +3,7 @@ class Badge < ApplicationRecord
   has_many :users, through: :badge_users
 
   validates :title, presence: true
-  validates :level, numericality: {only_integer: true}
+  validates :level, numericality: {only_integer: true}, allow_blank: true
 
   def self.search_badge(report)
     all.select do |badge|
