@@ -1,7 +1,5 @@
 class FeedbacksController < ApplicationController
-  
-  def new
-  end
+  def new; end
 
   def create
     FeedbackMailer.feedback(feedback_params, current_user).deliver_now

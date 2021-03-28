@@ -14,17 +14,17 @@ class Test < ApplicationRecord
   before_validation :test_correctness
   validates :title, presence: true, uniqueness: { scope: :level, message: 'Title and level combination must be unique' }
   validates :level, numericality: { only_integer: true }
-  
+
   def self.tests_by_category(title)
     tests_with_category.where('categories.title=?', title).order(title: :desc).pluck(:title)
   end
 
   def correct_test?
-    !(questions.empty? || questions.left_outer_joins(:answers).where('answers.id IS NULL').exists?)
+    !(questions.empty? || questions.left_outer_joins(:answers).exists?(answers: { id: nil }))
   end
 
   def test_correctness
-    self.under_construction = true unless self.correct_test?
+    self.under_construction = true unless correct_test?
   end
 
   delegate :count, to: :questions, prefix: true

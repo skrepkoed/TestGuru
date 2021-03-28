@@ -1,12 +1,12 @@
-<h1>Your achievements</h1>
+<h1><%= t('.achievements')%></h1>
 <br>
-<%= link_to 'All badges', badges_path%>
+<%= link_to t('.all_badges'), badges_path%>
 <div class="container col-12 col-md-8  ">
   <table class="table table-hover table-bordered">
     <thead>
       <tr class="table-success text-center">
         <th colspan="2">
-          Title
+          <%= t('.title')%>
         </th>
       </tr>
     </thead>

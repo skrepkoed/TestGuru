@@ -5,18 +5,21 @@
     <%else%>
     <div class='navbar-brand'><%= link_to 'TestGuru', '/'%> </div>
     <div class='navbar-brand'><%= link_to 'TestGuruAdmin', admin_tests_path%> </div>
+    <div class='navbar-brand'><%= link_to t('.achievements'), admin_badges_path%> </div>
+    <div class='navbar-brand'><%= link_to t('.gists'), admin_gists_path%> </div>
     <%end%>
     <div class='navbar-nav flex-fill justify-content-end'>
       <% if user_signed_in?%>
         <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <%= link_to t('.achievements'), achievements_path, class: "nav-link"%>
+        <span class="navbar-text">Welcome Guru <%= current_user.username%></span>
+        <span><%= link_to 'Feedback', new_feedback_path, class: "nav-link" %> </span>
       <%else%>
         <%= link_to 'Log in', new_user_session_path, class: "nav-link"%>
         <%= link_to 'Sign up', new_user_registration_path, class: "nav-link"%>
+         
       <%end%>
-      <% if user_signed_in? %>
-        <span class="navbar-text">Welcome Guru <%= current_user.username%></span>
-        <span><%= link_to 'Feedback', new_feedback_path, class: "nav-link" %> </span>
-      <%end%>
+  
       </div>
   </nav>
 </header>

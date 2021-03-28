@@ -1,10 +1,11 @@
 class BadgesController < ApplicationController
-  before_action :find_test, only: %i[show]
+  before_action :find_badge, only: %i[show]
   def index
     @badges = Badge.all
   end
 
   def show
+    @category = Category.find(@badge.category_id)
   end
 
   def achievements
@@ -13,7 +14,7 @@ class BadgesController < ApplicationController
 
   private
 
-  def find_test
+  def find_badge
     @badge = Badge.find(params[:id])
   end
 end

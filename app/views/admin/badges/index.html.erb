@@ -1,17 +1,19 @@
-<h1>Badges</h1>
+<h1><%= t('.achievements')%></h1>
+
+<%= link_to t('.new'), new_admin_badge_path %>
 
 <div class="container col-12 col-md-8  ">
   <table class="table table-hover table-bordered">
     <thead>
       <tr class="table-success text-center">
         <th>
-          Title
+          <%= t('.achievements')%>
         </th>
         <th>
-          Picture_url
+          Octicon
         </th>
         <th colspan="3">
-          Actions
+          <%= t('.actions') %>
         </th>
       </tr>
     </thead>

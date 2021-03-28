@@ -6,12 +6,13 @@ class GistsController < ApplicationController
     gist.call
     if gist.success?
       gist_url = gist.url_hash
-      @gist = Gist.create(user_id: @test_passage.user_id, question_id: @test_passage.current_question.id, gist_url: gist_url)
+      @gist = Gist.create(user_id: @test_passage.user_id, question_id: @test_passage.current_question.id,
+                          gist_url: gist_url)
       flash.now[:notice] = t('.gist_success_html', gist: helpers.link_to_gist(@gist)).html_safe
     else
       flash.now[:notice] = t('.gist_fail')
     end
-     render '/test_passages/show'
+    render '/test_passages/show'
   end
 
   private

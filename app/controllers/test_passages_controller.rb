@@ -14,9 +14,7 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result
-    
-  end
+  def result; end
 
   private
 
@@ -25,7 +23,10 @@ class TestPassagesController < ApplicationController
   end
 
   def define_badges
-    @badges=Badge.search_badge(@test_passage.report_achevments)
-    @badges.each{|badge| BadgeUser.create(user_id: current_user.id , badge_id: badge.id, test_passage_id: @test_passage.id)}
+    @badges = Badge.search_badge(@test_passage.report_achevments)
+    @badges.each do |badge|
+      BadgeUser.create(user_id: current_user.id, badge_id: badge.id, test_passage_id: @test_passage.id)
+    rescue ActiveRecord::RecordNotUnique
+    end
   end
 end

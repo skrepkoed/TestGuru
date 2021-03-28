@@ -35,9 +35,9 @@ class TestPassage < ApplicationRecord
   end
 
   def report_achevments
-    {'category_id' => category_finished?,
-     'level' => level_finished?,
-     'first_atempt' => first_atempt?} 
+    { 'category_id' => category_finished?,
+      'level' => level_finished?,
+      'first_atempt' => first_atempt? }
   end
 
   private
@@ -45,7 +45,7 @@ class TestPassage < ApplicationRecord
   def correct_answers?(answer_ids)
     correct_answers_count = correct_answers.count
     (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-    correct_answers_count == answer_ids.count
+      correct_answers_count == answer_ids.count
   end
 
   def correct_answers
@@ -56,20 +56,22 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id > ?', current_question&.id).first
   end
 
-   def category_finished?
+  def category_finished?
     user_test_by_category = Test.group(:category_id).where(id: user.passed_tests.pluck(:id)).size
     category_tests = Test.group(:category_id).where(category_id: user.passed_tests.select(:category_id)).size
-    category_tests.select{|key,value| user_test_by_category[key]==value }.keys
+    category_tests.select { |key, value| user_test_by_category[key] == value }.keys
   end
 
   def level_finished?
     user_test_by_level = Test.group(:level).where(id: user.passed_tests.pluck(:id)).size
     tests_by_level = Test.group(:level).where(level: user.passed_tests.select(:level)).size
-    tests_by_level.select{|key,value| user_test_by_level[key]==value }.keys
+    tests_by_level.select { |key, value| user_test_by_level[key] == value }.keys
   end
 
   def first_atempt?
-    self.class.select("DISTINCT ON(test_id) *").order("test_id, updated_at ASC").select{|tp| tp.success==true}.pluck(:test_id)
+    self.class.select('DISTINCT ON(test_id) *').order('test_id, updated_at ASC').select do |tp|
+      tp.success == true
+    end.pluck(:test_id)
   end
 
   def before_validation_set_first_question

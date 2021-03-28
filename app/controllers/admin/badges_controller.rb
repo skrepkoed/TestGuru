@@ -9,15 +9,13 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def create
-    @badge=Badge.create(params_badge)
+    @badge = Badge.create(params_badge)
     redirect_to admin_badges_path
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @badge.update(params_badge)

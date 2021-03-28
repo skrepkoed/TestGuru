@@ -1,24 +1,24 @@
 <%= render '/shared/errors', resource:[@badge]%>
 <%= form_with model: [:admin, @badge], local: true do |form|%>
 <p>
-  <%= form.label :title%>
+  <%= form.label :title, t('.title') %>
   <%= form.text_field :title%>
 </p>
 <p>
-  <%= form.label :picture, 'Picture URL'%>
+  <%= form.label :picture, 'Octicon'%>
   <%= form.text_field :picture%>
 </p>
 <p>
-  <%= form.label :level, 'User passed all tests of level'%>
+  <%= form.label :level, t('.user_passed_all_tests_of_level')%>
   <%= form.number_field :level%>
 </p>
 <p>
-  <%= form.label :category, 'User passed all tests from category'%>
-  <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt')%>
+  <%= form.label :category, t('.user_passed_all_tests_from_category')%>
+  <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt_category')%>
 </p>
 <p>
-  <%= form.label :first_atempt, 'User passed test with title with first_atempt'%>
-    <%= form.collection_select :first_atempt, Test.all, :id, :title, prompt: t('.prompt')%>
+  <%= form.label :first_atempt, t('.user_passed_test_with_title_with_first_atempt')%>
+    <%= form.collection_select :first_atempt, Test.all, :id, :title, prompt: t('.prompt_test')%>
 </p>
 <p>
   <%= form.submit%>
