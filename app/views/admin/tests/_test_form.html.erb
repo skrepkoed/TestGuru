@@ -9,6 +9,10 @@
 	<%= form.number_field :level%>
 </p>
 <p>
+  <%= form.label :time_for_passage%>
+  <%= form.number_field :time_for_passage%>
+</p>
+<p>
 	<%= form.label :category%>
 	<%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt')%>
 </p>

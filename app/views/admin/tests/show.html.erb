@@ -1,6 +1,7 @@
 <h1><%= t('.header')%> </h1>
 <h2><%= t('.title')%>: <%= @test.title%></h2>
 <h2><%= t('.level')%>: <%= @test.level%></h2>
+<h2><%= t('.time_for_passage')%>: <%= @test.time_for_passage%></h2>
 <h2><%= t('.amount_questions')%> <%= t('.questions_counter', count: @test_questions.count) %></h2>
 <%= link_to t('.edit'), edit_admin_test_path(@test) %>	
 <%= render '/shared/questions_list', test: @test%>
