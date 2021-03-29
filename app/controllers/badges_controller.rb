@@ -4,10 +4,6 @@ class BadgesController < ApplicationController
     @badges = Badge.all
   end
 
-  def show
-    @category = Category.find(@badge.category_id)
-  end
-
   def achievements
     @user_badges = current_user.achievements
   end

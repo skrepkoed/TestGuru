@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :badges, only: %i[index show] 
+   resources :badges, only: %i[index] 
    get 'achievements', to: 'badges#achievements'
   
   resources :test_passages, only: %i[show update] do

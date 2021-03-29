@@ -66,9 +66,8 @@ en:
       show:
         header: "Badge"
         title: "Title"
-        level: "Level"
-        category: "Category"
-        first_atempt: 'User passed test with first atempt'
+        rule: "Rule"
+        value: "Value"
         edit: "Edit"
         back: "Back to badges"
   shared:

@@ -9,17 +9,16 @@
   <%= form.text_field :picture%>
 </p>
 <p>
-  <%= form.label :level, t('.user_passed_all_tests_of_level')%>
-  <%= form.number_field :level%>
+  <%= form.label :rule%>
+  <%= form.text_field :rule%>
 </p>
+
 <p>
-  <%= form.label :category, t('.user_passed_all_tests_from_category')%>
-  <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt_category')%>
+  <%= form.label :value%>
+  <%= form.text_field :value%>
 </p>
-<p>
-  <%= form.label :first_atempt, t('.user_passed_test_with_title_with_first_atempt')%>
-    <%= form.collection_select :first_atempt, Test.all, :id, :title, prompt: t('.prompt_test')%>
-</p>
+
+
 <p>
   <%= form.submit%>
 </p>
