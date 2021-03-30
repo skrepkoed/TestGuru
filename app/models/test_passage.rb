@@ -25,6 +25,10 @@ class TestPassage < ApplicationRecord
     test_result >= TEST_RESULT_SUCCESS
   end
 
+  def time_is_over?
+    Time.now > created_at.since(test.time_for_passage_in_sec)
+  end
+
   def current_question_number
     if next_question || current_question
       test.questions.order(:id).where('id < ?', current_question).count + 1

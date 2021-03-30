@@ -3,6 +3,9 @@
 <p>
 	
 		<%= render 'test_passages/progress_bar', test_passage: @test_passage%>
+		<%= content_tag :div, class: 'timer', data:{time_left: @time_left} do %>
+			<span><%= @time_left %></span>
+			<%end%>
 		<div class="form-group col-12 col-md-6 ml-3">
 			
 		<br>

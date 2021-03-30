@@ -1,9 +1,19 @@
 class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result]
-  def show; end
+  def show
+    @time_left = @test_passage.test.time_for_passage_in_sec - (Time.now - @test_passage.created_at)
+  end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    
+    if @test_passage.time_is_over?
+      @test_passage.current_question = nil
+    else
+      @time_left = @test_passage.test.time_for_passage_in_sec - (Time.now - @test_passage.created_at)
+      @test_passage.accept!(params[:answer_ids])
+      byebug
+    end
+    
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       @test_passage.test_result
