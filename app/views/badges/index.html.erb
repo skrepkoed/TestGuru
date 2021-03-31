@@ -1,0 +1,15 @@
+<h1><%= t('.badges')%></h1>
+<div class="container col-12 col-md-8  ">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr class="table-success text-center">
+        <th colspan="2">
+          <%= t('.achievements') %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @badges %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<%= render '/shared/errors', resource:[@badge]%>
+<%= form_with model: [:admin, @badge], local: true do |form|%>
+<p>
+  <%= form.label :title, t('.title') %>
+  <%= form.text_field :title%>
+</p>
+<p>
+  <%= form.label :picture, 'Octicon'%>
+  <%= form.text_field :picture%>
+</p>
+<p>
+  <%= form.label :rule%>
+  <%= form.text_field :rule%>
+</p>
+
+<p>
+  <%= form.label :value%>
+  <%= form.text_field :value%>
+</p>
+
+
+<p>
+  <%= form.submit%>
+</p>
+<%end%>
+<%= link_to t('.back'), admin_badges_path%>

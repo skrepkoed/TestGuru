@@ -45,6 +45,34 @@ ru:
           other: "%{count} вопроса" 
       edit:
         header: "Редактировать тест"
+    badges:
+      badge:
+        show: "Детали"
+        edit: "Изменить бэдж"
+        delete:  "Удалить бэдж"
+      badge_form:
+        title: "Название"
+        user_passed_all_tests_of_level: "Пользователь прошел все тесты уровня:"
+        user_passed_all_tests_from_category: "Пользователь прошел все тесты категории:"
+        user_passed_test_with_title_with_first_atempt: "Пользователь прошел тест с первой попытки"
+        prompt_category: "Выберите категорию"
+        prompt_test: "Выберите тест"
+        back: "К списку бэджей"
+      edit:
+        header: "Редактировать бэдж"
+      index:
+        achievements: "Бэджи"
+        actions: "Действия"
+        new: "Создать новый бэдж"
+      new:
+        create: "Создать бэдж"
+      show:
+        header: "Бэдж"
+        title: "Название"
+        rule: "Правило"
+        value: "Значение"
+        edit: "Изменить"
+        back: "К списку бэджей"
   shared:
     questions_list:
       show: "Детали"
@@ -69,6 +97,21 @@ ru:
       level: "Уровень"
       author: "Автор"
       actions: "Действия"
+  badges:
+    achievements:
+      achievements: 'Твои достижения'
+      all_badges: "Все бэджи"
+      title: "Название"
+    index:
+      achievements: "Достижения"
+      badges: "Бэджи"
+    show:
+      header: "Бэдж"
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      first_atempt: 'Пользователь прошел тест с первой попытки'
+      back: "К списку бэджей"
   gists:
     create:
       gist_success_html: 'Гист %{gist} успешно создан.'

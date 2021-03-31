@@ -43,6 +43,33 @@ en:
           other: "%{count} questions" 
       edit:
         header: "Edit test"
+    badges:
+      badge:
+        show: "Show"
+        edit: "Edit badge"
+        delete:  "Delete badge"
+      badge_form:
+        title: "Title"
+        user_passed_all_tests_of_level: "User passed all tests of level"
+        user_passed_all_tests_from_category: "User passed all tests from category"
+        user_passed_test_with_title_with_first_atempt: "User passed test with title with first atempt"
+        prompt_category: "Choose category"
+        prompt_test: "Choose test"
+      edit:
+        header: "Edit badge"
+      index:
+        achievements: "Badges"
+        actions: "Actions"
+        new: "Create new Badge"
+      new:
+        create: "Create Badge"
+      show:
+        header: "Badge"
+        title: "Title"
+        rule: "Rule"
+        value: "Value"
+        edit: "Edit"
+        back: "Back to badges"
   shared:
     questions_list:
       show: "Show"
@@ -65,6 +92,21 @@ en:
       level: "Level"
       author: "Author"
       actions: "Actions"
+  badges:
+    achievements:
+      achievements: 'Your achievements'
+      all_badges: "All Badges"
+      title: "Title"
+    index:
+      achievements: "Achievements"
+      badges: "Badges"
+    show:
+      header: "Badge"
+      title: "Title"
+      level: "Level"
+      category: "Category"
+      first_atempt: 'User passed test with first atempt'
+      back: "To badges"
   gists:
     create:
       gist_success_html: 'Gist %{gist} successfuly created'

@@ -1,0 +1,5 @@
+<p><%= t('.title')%>: <%= @badge.title%></p>
+<p><%= t('.rule')%>: <%= @badge.rule%></p>
+<p><%= t('.value')%>: <%= @badge.value%></p>
+<%= link_to t('.edit'), edit_admin_badge_path(@badge) %><br>
+<%= link_to t('.back'), admin_badges_path %>

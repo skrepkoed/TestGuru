@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       post :start
     end
   end
+
+   resources :badges, only: %i[index] 
+   get 'achievements', to: 'badges#achievements'
   
   resources :test_passages, only: %i[show update] do
     post :gist, to: 'gists#create'
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true do

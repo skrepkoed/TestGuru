@@ -13,11 +13,14 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result; end
+  def result
+    BadgeService.define_badges(@test_passage)
+  end
 
   private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
+
 end
