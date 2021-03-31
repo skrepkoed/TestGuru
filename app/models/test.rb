@@ -20,7 +20,7 @@ class Test < ApplicationRecord
   end
 
   def time_for_passage_in_sec
-    time_for_passage*60
+    time_for_passage*60 if time_for_passage
   end
 
   def correct_test?
