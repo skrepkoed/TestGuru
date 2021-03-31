@@ -5,7 +5,7 @@ class BadgeService
     @test = test_passage.test
     Badge.all.each do |badge| 
       if send("#{badge.rule}?".to_sym, badge.value) && !BadgeUser.find_by(user_id: @user.id, badge_id: badge.id)
-        BadgeUser.create(user_id: @user.id, badge_id: badge.id, test_passage_id: test_passage.id) 
+        @user.badges << badge  
       end
     end
   end
