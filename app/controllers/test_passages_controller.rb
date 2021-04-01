@@ -4,10 +4,9 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    unless @test_passage.time_left.positive?
+    @test_passage.accept!(params[:answer_ids])
+    if @test_passage.time_left.negative?
       @test_passage.current_question = nil
-    else
-      @test_passage.accept!(params[:answer_ids])
     end
     
     if @test_passage.completed?
@@ -25,5 +24,6 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+    @test_passage.set_time_left
   end
 end

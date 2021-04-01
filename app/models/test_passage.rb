@@ -1,12 +1,14 @@
 class TestPassage < ApplicationRecord
   TEST_RESULT_SUCCESS = 85
+  
+  attr_reader :time_left
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: 'question_id', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
-  after_find :after_find_set_time_left, if: proc{ test.time_for_passage }
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answers?(answer_ids)
     save!
@@ -32,12 +34,12 @@ class TestPassage < ApplicationRecord
     end
   end
 
-  def time_left
-    unless @time_left
-      Float::INFINITY
-    else
-      @time_left
-    end
+  def set_time_left
+    @time_left = test.time_for_passage_in_sec - (Time.now - created_at) if test.time_for_passage
+  end
+
+  def timer_exist?
+    test.time_for_passage ? true : false
   end
 
   private
@@ -62,9 +64,5 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_next_question
     self.current_question = next_question
-  end
-
-  def after_find_set_time_left
-    @time_left = test.time_for_passage_in_sec - (Time.now - created_at)
   end
 end

@@ -24,27 +24,6 @@ ActiveRecord::Schema.define(version: 2021_03_28_111207) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "badge_users", force: :cascade do |t|
-    t.bigint "badge_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "test_passage_id", null: false
-    t.index ["badge_id"], name: "index_badge_users_on_badge_id"
-    t.index ["test_passage_id"], name: "index_badge_users_on_test_passage_id"
-    t.index ["user_id"], name: "index_badge_users_on_user_id"
-  end
-
-  create_table "badges", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "picture"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
-    t.integer "level"
-    t.integer "first_atempt"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
