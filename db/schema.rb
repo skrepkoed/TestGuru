@@ -105,9 +105,6 @@ ActiveRecord::Schema.define(version: 2021_03_28_111207) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "badge_users", "badges"
-  add_foreign_key "badge_users", "test_passages"
-  add_foreign_key "badge_users", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
