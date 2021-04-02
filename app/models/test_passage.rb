@@ -1,7 +1,5 @@
 class TestPassage < ApplicationRecord
   TEST_RESULT_SUCCESS = 85
-  
-  attr_reader :time_left
 
   belongs_to :test
   belongs_to :user
@@ -35,7 +33,7 @@ class TestPassage < ApplicationRecord
   end
 
   def set_time_left
-    @time_left = test.time_for_passage_in_sec - (Time.now - created_at) if test.time_for_passage
+    test.time_for_passage_in_sec - (Time.now - created_at)
   end
 
   def timer_exist?

@@ -5,11 +5,8 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    if @test_passage.time_left.negative?
+    if @test_passage.completed? || @test_passage.set_time_left.negative?
       @test_passage.current_question = nil
-    end
-    
-    if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       @test_passage.test_result
       redirect_to result_test_passage_path(@test_passage)
@@ -24,6 +21,5 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
-    @test_passage.set_time_left
   end
 end

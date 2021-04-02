@@ -4,7 +4,7 @@
 	
 		<%= render 'test_passages/progress_bar', test_passage: @test_passage%>
 		<% if @test_passage.timer_exist? %>
-			<%= render 'test_passages/timer', test_passage: @test_passage, time_left: @test_passage.time_left%>
+			<%= render 'test_passages/timer', test_passage: @test_passage, time_left: @test_passage.set_time_left%>
 		<% end %>
 		<div class="form-group col-12 col-md-6 ml-3">
 			
