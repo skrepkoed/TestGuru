@@ -6,7 +6,6 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', foreign_key: 'question_id', optional: true
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
-
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answers?(answer_ids)
     self.success = true if test_success?
@@ -24,13 +23,21 @@ class TestPassage < ApplicationRecord
   def test_success?
     test_result >= TEST_RESULT_SUCCESS
   end
-
+  
   def current_question_number
     if next_question || current_question
       test.questions.order(:id).where('id < ?', current_question).count + 1
     else
       test.questions.count
     end
+  end
+
+  def set_time_left
+    test.time_for_passage_in_sec - (Time.now - created_at)
+  end
+
+  def timer_exist?
+    test.time_for_passage ? true : false
   end
 
   private

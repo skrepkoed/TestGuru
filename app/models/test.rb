@@ -19,6 +19,10 @@ class Test < ApplicationRecord
     tests_with_category.where('categories.title=?', title).order(title: :desc).pluck(:title)
   end
 
+  def time_for_passage_in_sec
+    time_for_passage*60 if time_for_passage
+  end
+
   def correct_test?
     !(questions.empty? || questions.left_outer_joins(:answers).exists?(answers: { id: nil }))
   end
